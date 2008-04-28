@@ -33,6 +33,40 @@
 </li>
 </ul>
 </div>
+<div class="section"><h2>Usage</h2>
+<p>This plugin and its dependencies are living in <a href="http://download.java.net/maven/2" class="externalLink">the java.net maven2 repository</a>
+ and <a href="http://download.java.net/maven/glassfish" class="externalLink">the java.net glassfish repository</a>
+. So you need to have the following declarations in your POM:</p>
+<div class="source"><pre>  &lt;repositories&gt;
+    ...
+    &lt;repository&gt;
+      &lt;id&gt;glassfish-repository&lt;/id&gt;
+      &lt;name&gt;Java.net Repository for Glassfish&lt;/name&gt;
+      &lt;url&gt;http://download.java.net/maven/glassfish&lt;/url&gt;
+    &lt;/repository&gt;
+  &lt;/repositories&gt;
+
+  &lt;pluginRepositories&gt;
+    ...
+    &lt;pluginRepository&gt;
+      &lt;id&gt;glassfish-repository&lt;/id&gt;
+      &lt;name&gt;Java.net maven2 repository&lt;/name&gt;
+      &lt;url&gt;http://download.java.net/maven/2&lt;/url&gt;
+    &lt;/pluginRepository&gt;
+  &lt;/pluginRepositories&gt;
+
+  &lt;build&gt;
+    &lt;plugins&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.glassfish&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-glassfish-plugin&lt;/artifactId&gt;
+      &lt;/plugin&gt;
+      ...
+    &lt;/plugins&gt;
+    ...
+  &lt;/plugins&gt;</pre>
+</div>
+</div>
 
       </div>
     </div>
