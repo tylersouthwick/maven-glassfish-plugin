@@ -9,10 +9,9 @@
 
 
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <title>Grails extension for GlassFish v3 - Project Summary</title>
+    <title>Maven Glassfish Plugin - Project Summary</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
       @import url("./css/maven-theme.css");
@@ -20,61 +19,58 @@
     </style>
     <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-      </head>
+                </head>
   <body class="composite">
-    <div id="banner">
-                    <span id="bannerLeft">
-    
-            Grails extension for GlassFish v3
-    
-            </span>
-                    <div class="clear">
-        <hr/>
+    <!-- TODO: move this into JavaScript to patch the skin
+      <div class="xright">      <a href="http://www.apache.org/">Apache</a>
+          |
+          <a href="http://maven.apache.org/">Maven</a>
+          |
+          <a href="http://maven.apache.org/plugins/">Maven Plugins</a>
       </div>
-    </div>
-    <div id="breadcrumbs">
-          
-  
-
-  
-    
-  
-  
-    
-            <div class="xleft">
-        Last Published: 2008-05-04
-                      </div>
-            <div class="xright">            <a href="">Grails extension for GlassFish v3</a>
-            
-  
-
-  
-    
-  
-  
-    
-  </div>
-      <div class="clear">
-        <hr/>
-      </div>
-    </div>
+    -->
     <div id="leftColumn">
       <div id="navcolumn">
-           
-  
-
-  
-    
-  
-  
-    
-                             <h5>Project Documentation</h5>
-            <ul>
+             <dl class=navgroup>
+        <dt>Overview</dt>
+        <dd><ul>
+              
+    <li class="none">
+              <a href="index.html">Introduction</a>
+        </li>
+              
+    <li class="none">
+              <a href="plugin-info.html">Goals</a>
+        </li>
+              
+    <li class="none">
+              <a href="usage.html">Usage</a>
+        </li>
+              
+    <li class="none">
+              <a href="faq.html">FAQ</a>
+        </li>
+          </ul></dd>
+    </dl>
+      <dl class=navgroup>
+        <dt>Examples</dt>
+        <dd><ul>
+              
+    <li class="none">
+              <a href="examples/complete.html">Complete example</a>
+        </li>
+              
+    <li class="none">
+              <a href="examples/profiles.html">Using profiles</a>
+        </li>
+          </ul></dd>
+    </dl>
+      <dl class=navgroup>
+        <dt>Project Documentation</dt>
+        <dd><ul>
               
                 
               
-      
-            
       
             
       
@@ -92,59 +88,77 @@
       
               
             <li class="expanded">
-                    <a href="project-info.html">Project Information</a>
-                  <ul>
+              <a href="project-info.html">Project Information</a>
+                <ul>
                   
     <li class="none">
-                    <a href="index.html">About</a>
-          </li>
+              <a href="integration.html">Continuous Integration</a>
+        </li>
                   
     <li class="none">
-                    <a href="integration.html">Continuous Integration</a>
-          </li>
+              <a href="dependencies.html">Dependencies</a>
+        </li>
                   
     <li class="none">
-                    <a href="dependencies.html">Dependencies</a>
-          </li>
+              <a href="issue-tracking.html">Issue Tracking</a>
+        </li>
                   
     <li class="none">
-                    <a href="issue-tracking.html">Issue Tracking</a>
-          </li>
+              <a href="mail-lists.html">Mailing Lists</a>
+        </li>
                   
     <li class="none">
-                    <a href="mail-lists.html">Mailing Lists</a>
-          </li>
-                  
-    <li class="none">
-                    <a href="license.html">Project License</a>
-          </li>
+              <a href="license.html">Project License</a>
+        </li>
                   
     <li class="none">
               <strong>Project Summary</strong>
         </li>
                   
     <li class="none">
-                    <a href="team-list.html">Project Team</a>
-          </li>
+              <a href="team-list.html">Project Team</a>
+        </li>
                   
     <li class="none">
-                    <a href="source-repository.html">Source Repository</a>
-          </li>
+              <a href="source-repository.html">Source Repository</a>
+        </li>
               </ul>
         </li>
-          </ul>
-                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
-            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
-          </a>
-                       
-  
-
-  
-    
-  
-  
-    
+              
+                
+              
+      
+              
+        <li class="collapsed">
+              <a href="project-reports.html">Project Reports</a>
+              </li>
+          </ul></dd>
+    </dl>
         </div>
+      <script>
+        // replace the java.net project tools with the navigation bar from Maven.
+        // also get rid of "Get Involved" thingie too, while we are at it
+        var pt = document.getElementById("projecttools");
+        var nv = document.getElementById("navcolumn");
+        
+        while(pt.previousSibling!=null)
+          pt.parentNode.removeChild(pt.previousSibling);
+        
+        pt.parentNode.insertBefore(nv,pt);
+        pt.parentNode.removeChild(pt);
+      </script>
+      <script>
+        // kill "description" h3 bar
+        var ld = document.getElementById("longdescription");
+        if(ld!=null) {
+          for( n=ld.firstChild; n!=null; n=n.nextSibling ) {
+            if(n.nodeType==1 && n.innerHTML=="Description" ) {
+              n.parentNode.removeChild(n);
+              break;
+            }
+          }
+        }
+      </script>
     </div>
     <div id="bodyColumn">
       <div id="contentBox">
@@ -154,45 +168,38 @@
 <th>Value</th>
 </tr>
 <tr class="b"><td>Name</td>
-<td>Grails extension for GlassFish v3</td>
+<td>Maven Glassfish Plugin</td>
 </tr>
 <tr class="a"><td>Description</td>
-<td>-</td>
+<td>The Glassfish Maven Plugin is a Maven2 plugin allowing management of Glassfish domains and component deployments
+        from within the Maven build lifecycle. It encapsulates domain configuration and deployment attributes within the build
+        configuration for a more rapid development integration loop and simplified management of continuous integration testing of
+        components destined for deployment within the Glassfish V2 and later JavaEE containers.</td>
 </tr>
 <tr class="b"><td>Homepage</td>
-<td><a href="http://glassfish.org/grails-gfv3" class="externalLink">http://glassfish.org/grails-gfv3</a>
+<td><a href="http://maven-glassfish-plugin.dev.java.net/" class="externalLink">http://maven-glassfish-plugin.dev.java.net/</a>
 </td>
 </tr>
 </table>
 </div>
 <div class="section"><h3>Project Organization</h3>
+<p>This project does not belong to an organization.</p>
+</div>
+<div class="section"><h3>Build Information</h3>
 <table class="bodyTable"><tr class="a"><th>Field</th>
 <th>Value</th>
 </tr>
-<tr class="b"><td>Name</td>
-<td>Sun Microsystems, Inc.</td>
+<tr class="b"><td>GroupId</td>
+<td>org.glassfish.maven.plugin</td>
 </tr>
-<tr class="a"><td>URL</td>
-<td><a href="http://www.sun.com" class="externalLink">http://www.sun.com</a>
-</td>
+<tr class="a"><td>ArtifactId</td>
+<td>maven-glassfish-plugin</td>
 </tr>
-</table>
-</div>
-<div class="section"><h3>Build Information</h3>
-<table class="bodyTable"><tr class="b"><th>Field</th>
-<th>Value</th>
+<tr class="b"><td>Version</td>
+<td>2.0</td>
 </tr>
-<tr class="a"><td>GroupId</td>
-<td>org.glassfish.scripting</td>
-</tr>
-<tr class="b"><td>ArtifactId</td>
-<td>grails-gfv3</td>
-</tr>
-<tr class="a"><td>Version</td>
-<td>1.1</td>
-</tr>
-<tr class="b"><td>Type</td>
-<td>jar</td>
+<tr class="a"><td>Type</td>
+<td>maven-plugin</td>
 </tr>
 </table>
 </div>
@@ -205,18 +212,16 @@
     </div>
     <div id="footer">
       <div class="xright">&#169;  
-          2008
+          2007-2008
     
-          Sun Microsystems, Inc.
           
   
 
   
-    
   
-  
-    
-  </div>
+  &nbsp;| Last Published: 03 Jul 2008
+  &nbsp;| Version: 2.0
+</div>
       <div class="clear">
         <hr/>
       </div>
