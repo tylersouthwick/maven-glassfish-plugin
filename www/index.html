@@ -133,13 +133,18 @@
 <p>The Maven Glassfish Plugin is a Maven2 plugin allowing management of Glassfish domains and component deployments from within the Maven build lifecycle. It encapsulates domain configuration and deployment attributes within the build configuration for a more rapid development integration loop and simplified management of continuous integration testing of components destined for deployment within the Glassfish V2 and later JavaEE containers.</p>
 <div class="section"><h3>Goals Overview</h3>
 <ul><li><a href="create-domain-mojo.html">glassfish:create-domain</a>
- Create a new Glassfish domain.</li>
+ Create a new Glassfish domain. (Creating an existing domain will cause it to be deleted and recreated.)</li>
 <li><a href="start-domain-mojo.html">glassfish:start-domain</a>
- Start an existing Glassfish domain.</li>
+ Start an existing Glassfish domain. (Starting a non-existent domain will cause it to be created.)</li>
 <li><a href="deploy-mojo.html">glassfish:deploy</a>
- Deploy JavaEE artifacts to a running domain.</li>
+ Deploy JavaEE artifacts to a running domain. (Deploying to an inactive domain will cause it to be started and created if necessary.)</li>
 <li><a href="redeploy-mojo.html">glassfish:redeploy</a>
- Redeploy JavaEE artifacts to a running domain.</li>
+ Redeploy JavaEE artifacts to a running domain. (<b>Cold</b>
+ redeployment by first calling <tt>undeploy</tt>
+ and then <tt>deploy</tt>
+. Use <tt>deploy</tt>
+ to effect a <b>hot</b>
+ deployment.)</li>
 <li><a href="undeploy-mojo.html">glassfish:undeploy</a>
  Undeploy JavaEE components from a running domain.</li>
 <li><a href="stop-domain-mojo.html">glassfish:stop-domain</a>
@@ -150,12 +155,12 @@
 </div>
 <div class="section"><h3>Usage</h3>
 <p>Instructions on how to use the Maven Glassfish Plugin can be found <a href="usage.html">here</a>
-.</p>
+. Intelligent IDEs, such as Intellij IDEA 8 also provide Maven plugin configuration autocompletion.</p>
 </div>
 <div class="section"><h3>Examples</h3>
 <ul><li><a href="examples/complete.html">A single example demonstrating the use of all currently available configuration options</a>
 </li>
-<li><a href="examples/profiles.html">Using Maven profiles to provide alternate maven-glassfish-plugin mojo sequences in the default build</a>
+<li><a href="examples/profiles.html">Using Maven profiles to provide alternate maven-glassfish-plugin mojo sequences in the default build, and to enable per-user configurations.</a>
 </li>
 </ul>
 </div>
@@ -193,8 +198,8 @@
 
   
   
-  &nbsp;| Last Published: 03 Jul 2008
-  &nbsp;| Version: 2.0
+  &nbsp;| Last Published: 01 Sep 2008
+  &nbsp;| Version: 2.1
 </div>
       <div class="clear">
         <hr/>

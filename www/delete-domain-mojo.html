@@ -11,7 +11,7 @@
 
 <html>
   <head>
-    <title>Maven Glassfish Plugin - maven-glassfish-plugin - glassfish:delete-domain</title>
+    <title>Maven Glassfish Plugin - glassfish:delete-domain</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
       @import url("./css/maven-theme.css");
@@ -130,30 +130,33 @@
       <div id="contentBox">
         <div class="section"><h2><a name="glassfish:delete-domain"></a>
 glassfish:delete-domain</h2>
-<p>Delete an existing domain in a local or remote Glassfish instance</p>
-<p><b>Mojo Attributes</b>
-:<ul><li>Requires a Maven 2.0 project to execute.</li>
-<li>Automatically executes within the lifecycle phase: <code>post-integration-test</code></li>
-<li>Requires that mvn runs in online mode.</li>
+<p><strong>Full name</strong>:</p>
+<p>org.glassfish.maven.plugin:maven-glassfish-plugin:2.1:delete-domain</p>
+<p><strong>Description</strong>:</p>
+<div>Delete an existing domain in a local or remote Glassfish instance</div><p><strong>Attributes</strong>:</p>
+<ul><li>Requires a Maven 2.0 project to be executed.</li>
+<li>Binds by default to the lifecycle phase: <code>post-integration-test</code>.</li>
 </ul>
-</p>
 <div class="section"><h3><a name="Required_Parameters"></a>
 Required Parameters</h3>
 <table class="bodyTable"><tr class="a"><th>Name</th>
 <th>Type</th>
+<th>Since</th>
 <th>Description</th>
 </tr>
-<tr class="b"><td><b><a href="#domain">domain</a>
-</b>
-</td>
+<tr class="b"><td><strong><a href="#domain">domain</a>
+</strong></td>
 <td><code>Domain</code></td>
-<td>Container for domain configuration parameters.</td>
-</tr>
-<tr class="a"><td><b><a href="#glassfishDirectory">glassfishDirectory</a>
-</b>
+<td><code>-</code></td>
+<td>Container for domain configuration parameters.<br />
 </td>
+</tr>
+<tr class="a"><td><strong><a href="#glassfishDirectory">glassfishDirectory</a>
+</strong></td>
 <td><code>File</code></td>
-<td>The root directory of the Glassfish installation to be used</td>
+<td><code>-</code></td>
+<td>The root directory of the Glassfish installation to be used<br />
+</td>
 </tr>
 </table>
 </div>
@@ -161,190 +164,155 @@ Required Parameters</h3>
 Optional Parameters</h3>
 <table class="bodyTable"><tr class="b"><th>Name</th>
 <th>Type</th>
+<th>Since</th>
 <th>Description</th>
 </tr>
-<tr class="a"><td><b><a href="#domainDirectory">domainDirectory</a>
-</b>
-</td>
+<tr class="a"><td><strong><a href="#domainDirectory">domainDirectory</a>
+</strong></td>
 <td><code>File</code></td>
-<td>The directory into which domains are deployed Default value is <code>${glassfishDirectory}/domains</code>.</td>
-</tr>
-<tr class="b"><td><b><a href="#debug">debug</a>
-</b>
+<td><code>-</code></td>
+<td>The directory into which domains are deployed. Default value is
+${glassfishDirectory}/domains.<br />
 </td>
+</tr>
+<tr class="b"><td><strong><a href="#debug">debug</a>
+</strong></td>
 <td><code>boolean</code></td>
-<td>Debug Glassfish output Default value is <code>false</code>.</td>
+<td><code>-</code></td>
+<td>Debug Glassfish output<br />
+<strong>Default value is</strong>: <code>false</code>.</td>
 </tr>
-<tr class="a"><td><b><a href="#echo">echo</a>
-</b>
-</td>
+<tr class="a"><td><strong><a href="#echo">echo</a>
+</strong></td>
 <td><code>boolean</code></td>
-<td>Echo Glassfish asadmin commands Default value is <code>false</code>.</td>
+<td><code>-</code></td>
+<td>Echo Glassfish asadmin commands<br />
+<strong>Default value is</strong>: <code>false</code>.</td>
 </tr>
-<tr class="b"><td><b><a href="#terse">terse</a>
-</b>
-</td>
+<tr class="b"><td><strong><a href="#terse">terse</a>
+</strong></td>
 <td><code>boolean</code></td>
-<td>Terse Glassfish output Default value is <code>true</code>.</td>
+<td><code>-</code></td>
+<td>Terse Glassfish output<br />
+<strong>Default value is</strong>: <code>true</code>.</td>
 </tr>
-<tr class="a"><td><b><a href="#skip">skip</a>
-</b>
-</td>
+<tr class="a"><td><strong><a href="#skip">skip</a>
+</strong></td>
 <td><code>boolean</code></td>
-<td>Skip execution Default value is <code>false</code>.</td>
+<td><code>-</code></td>
+<td>Skip execution<br />
+<strong>Default value is</strong>: <code>false</code>.</td>
 </tr>
-<tr class="b"><td><b><a href="#autoCreate">autoCreate</a>
-</b>
-</td>
+<tr class="b"><td><strong><a href="#autoCreate">autoCreate</a>
+</strong></td>
 <td><code>boolean</code></td>
-<td>Automatically create the domain if it does not already exist Default value is <code>true</code>.</td>
+<td><code>-</code></td>
+<td>Automatically create the domain if it does not already exist<br />
+<strong>Default value is</strong>: <code>true</code>.</td>
 </tr>
-<tr class="a"><td><b><a href="#user">user</a>
-</b>
-</td>
+<tr class="a"><td><strong><a href="#user">user</a>
+</strong></td>
 <td><code>String</code></td>
-<td>The unprivileged user to run as</td>
+<td><code>-</code></td>
+<td>The asadmin user to create for domain administration.<br />
+<strong>Default value is</strong>: <code>${user.name}</code>.</td>
 </tr>
-<tr class="b"><td><b><a href="#passwordFile">passwordFile</a>
-</b>
-</td>
+<tr class="b"><td><strong><a href="#passwordFile">passwordFile</a>
+</strong></td>
 <td><code>String</code></td>
-<td>Location of the asadmin style password file (if you do not want to provide the password in your POM)</td>
+<td><code>-</code></td>
+<td>Location of the asadmin style password file (if you do not want to
+provide the password in your POM)<br />
+</td>
 </tr>
-<tr class="a"><td><b><a href="#adminPassword">adminPassword</a>
-</b>
-</td>
+<tr class="a"><td><strong><a href="#adminPassword">adminPassword</a>
+</strong></td>
 <td><code>String</code></td>
-<td>The admin password to use for this domain (if you would rather not use an asadmin style password file)</td>
+<td><code>-</code></td>
+<td>The admin password to use for this domain (if you would rather not
+use an asadmin style password file)<br />
+</td>
 </tr>
 </table>
 </div>
 <div class="section"><h3><a name="Parameter_Details"></a>
 Parameter Details</h3>
-<p><b><a name="domainDirectory">domainDirectory</a>
-</b>
-</p>
-<p>The directory into which domains are deployed</p>
-<ul><li><b>Type</b>
-: <code>java.io.File</code></li>
-<li><b>Required</b>
-: <code>No</code></li>
-<li><b>Default</b>
-: <code>${glassfishDirectory}/domains</code></li>
+<p><strong><a name="domainDirectory">domainDirectory</a>
+:</strong></p>
+<div>The directory into which domains are deployed. Default value is
+${glassfishDirectory}/domains.</div><ul><li><strong>Type</strong>: <code>java.io.File</code></li>
+<li><strong>Required</strong>: <code>No</code></li>
 </ul>
 <hr />
-<p><b><a name="domain">domain</a>
-</b>
-</p>
-<p>Container for domain configuration parameters.</p>
-<ul><li><b>Type</b>
-: <code>org.glassfish.maven.plugin.Domain</code></li>
-<li><b>Required</b>
-: <code>Yes</code></li>
+<p><strong><a name="domain">domain</a>
+:</strong></p>
+<div>Container for domain configuration parameters.</div><ul><li><strong>Type</strong>: <code>org.glassfish.maven.plugin.Domain</code></li>
+<li><strong>Required</strong>: <code>Yes</code></li>
 </ul>
 <hr />
-<p><b><a name="glassfishDirectory">glassfishDirectory</a>
-</b>
-</p>
-<p>The root directory of the Glassfish installation to be used</p>
-<ul><li><b>Type</b>
-: <code>java.io.File</code></li>
-<li><b>Required</b>
-: <code>Yes</code></li>
-<li><b>Expression</b>
-: <code>${glassfish.home}</code></li>
+<p><strong><a name="glassfishDirectory">glassfishDirectory</a>
+:</strong></p>
+<div>The root directory of the Glassfish installation to be used</div><ul><li><strong>Type</strong>: <code>java.io.File</code></li>
+<li><strong>Required</strong>: <code>Yes</code></li>
+<li><strong>Expression</strong>: <code>${glassfish.home}</code></li>
 </ul>
 <hr />
-<p><b><a name="debug">debug</a>
-</b>
-</p>
-<p>Debug Glassfish output</p>
-<ul><li><b>Type</b>
-: <code>boolean</code></li>
-<li><b>Required</b>
-: <code>No</code></li>
-<li><b>Default</b>
-: <code>false</code></li>
+<p><strong><a name="debug">debug</a>
+:</strong></p>
+<div>Debug Glassfish output</div><ul><li><strong>Type</strong>: <code>boolean</code></li>
+<li><strong>Required</strong>: <code>No</code></li>
+<li><strong>Default</strong>: <code>false</code></li>
 </ul>
 <hr />
-<p><b><a name="echo">echo</a>
-</b>
-</p>
-<p>Echo Glassfish asadmin commands</p>
-<ul><li><b>Type</b>
-: <code>boolean</code></li>
-<li><b>Required</b>
-: <code>No</code></li>
-<li><b>Default</b>
-: <code>false</code></li>
+<p><strong><a name="echo">echo</a>
+:</strong></p>
+<div>Echo Glassfish asadmin commands</div><ul><li><strong>Type</strong>: <code>boolean</code></li>
+<li><strong>Required</strong>: <code>No</code></li>
+<li><strong>Default</strong>: <code>false</code></li>
 </ul>
 <hr />
-<p><b><a name="terse">terse</a>
-</b>
-</p>
-<p>Terse Glassfish output</p>
-<ul><li><b>Type</b>
-: <code>boolean</code></li>
-<li><b>Required</b>
-: <code>No</code></li>
-<li><b>Default</b>
-: <code>true</code></li>
+<p><strong><a name="terse">terse</a>
+:</strong></p>
+<div>Terse Glassfish output</div><ul><li><strong>Type</strong>: <code>boolean</code></li>
+<li><strong>Required</strong>: <code>No</code></li>
+<li><strong>Default</strong>: <code>true</code></li>
 </ul>
 <hr />
-<p><b><a name="skip">skip</a>
-</b>
-</p>
-<p>Skip execution</p>
-<ul><li><b>Type</b>
-: <code>boolean</code></li>
-<li><b>Required</b>
-: <code>No</code></li>
-<li><b>Default</b>
-: <code>false</code></li>
+<p><strong><a name="skip">skip</a>
+:</strong></p>
+<div>Skip execution</div><ul><li><strong>Type</strong>: <code>boolean</code></li>
+<li><strong>Required</strong>: <code>No</code></li>
+<li><strong>Default</strong>: <code>false</code></li>
 </ul>
 <hr />
-<p><b><a name="autoCreate">autoCreate</a>
-</b>
-</p>
-<p>Automatically create the domain if it does not already exist</p>
-<ul><li><b>Type</b>
-: <code>boolean</code></li>
-<li><b>Required</b>
-: <code>No</code></li>
-<li><b>Default</b>
-: <code>true</code></li>
+<p><strong><a name="autoCreate">autoCreate</a>
+:</strong></p>
+<div>Automatically create the domain if it does not already exist</div><ul><li><strong>Type</strong>: <code>boolean</code></li>
+<li><strong>Required</strong>: <code>No</code></li>
+<li><strong>Default</strong>: <code>true</code></li>
 </ul>
 <hr />
-<p><b><a name="user">user</a>
-</b>
-</p>
-<p>The unprivileged user to run as</p>
-<ul><li><b>Type</b>
-: <code>java.lang.String</code></li>
-<li><b>Required</b>
-: <code>No</code></li>
-<li><b>Expression</b>
-: <code>${user.name}</code></li>
+<p><strong><a name="user">user</a>
+:</strong></p>
+<div>The asadmin user to create for domain administration.</div><ul><li><strong>Type</strong>: <code>java.lang.String</code></li>
+<li><strong>Required</strong>: <code>No</code></li>
+<li><strong>Expression</strong>: <code>${glassfish.adminUser}</code></li>
+<li><strong>Default</strong>: <code>${user.name}</code></li>
 </ul>
 <hr />
-<p><b><a name="passwordFile">passwordFile</a>
-</b>
-</p>
-<p>Location of the asadmin style password file (if you do not want to provide the password in your POM)</p>
-<ul><li><b>Type</b>
-: <code>java.lang.String</code></li>
-<li><b>Required</b>
-: <code>No</code></li>
+<p><strong><a name="passwordFile">passwordFile</a>
+:</strong></p>
+<div>Location of the asadmin style password file (if you do not want to
+provide the password in your POM)</div><ul><li><strong>Type</strong>: <code>java.lang.String</code></li>
+<li><strong>Required</strong>: <code>No</code></li>
 </ul>
 <hr />
-<p><b><a name="adminPassword">adminPassword</a>
-</b>
-</p>
-<p>The admin password to use for this domain (if you would rather not use an asadmin style password file)</p>
-<ul><li><b>Type</b>
-: <code>java.lang.String</code></li>
-<li><b>Required</b>
-: <code>No</code></li>
+<p><strong><a name="adminPassword">adminPassword</a>
+:</strong></p>
+<div>The admin password to use for this domain (if you would rather not
+use an asadmin style password file)</div><ul><li><strong>Type</strong>: <code>java.lang.String</code></li>
+<li><strong>Required</strong>: <code>No</code></li>
+<li><strong>Expression</strong>: <code>${glassfish.adminPassword}</code></li>
 </ul>
 </div>
 </div>
@@ -363,8 +331,8 @@ Parameter Details</h3>
 
   
   
-  &nbsp;| Last Published: 03 Jul 2008
-  &nbsp;| Version: 2.0
+  &nbsp;| Last Published: 01 Sep 2008
+  &nbsp;| Version: 2.1
 </div>
       <div class="clear">
         <hr/>
