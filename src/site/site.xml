@@ -56,11 +56,13 @@
         <!--<artifactId>maven-skin</artifactId>-->
         <!--<version>1.1</version>-->
     <!--</skin>-->
+    <!--
     <skin>
         <groupId>org.jvnet.maven-javanet-skin</groupId>
         <artifactId>maven-javanet-skin</artifactId>
         <version>1.2</version>
     </skin>
+    -->
 
     <publishDate format="dd MMM yyyy" position="left" />
     <version position="left" />
