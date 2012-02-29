@@ -68,9 +68,15 @@ public class UndeployCommand extends InteractiveAsadminCommand {
         List<String> parameters = super.getParameters();
         parameters.addAll(Arrays.asList(
                 "--host", domain.getHost(),
-                "--port", String.valueOf(domain.getAdminPort()),
-                component.getName()
+                "--port", String.valueOf(domain.getAdminPort())
         ));
+
+        if (sharedContext.getTarget() != null) {
+            parameters.addAll(Arrays.asList("--target", sharedContext.getTarget()));
+        }
+
+        parameters.add(component.getName());
+        sharedContext.getLog().info("parameters: " + parameters);
         return parameters;
     }
 

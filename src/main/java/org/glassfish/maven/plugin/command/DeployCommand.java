@@ -56,12 +56,16 @@ public class DeployCommand extends InteractiveAsadminCommand {
     private Domain domain;
     private Component component;
     private boolean force;
+    
+    /* The deployment target. */
+    private String target;
 
     public DeployCommand(DeploymentGlassfishMojo sharedContext, Domain domain, Component component) {
         super(sharedContext);
         this.domain = domain;
         this.component = component;
         this.force = sharedContext.isForce();
+        this.target = sharedContext.getTarget();
     }
 
     protected String getName() {
@@ -76,6 +80,12 @@ public class DeployCommand extends InteractiveAsadminCommand {
             // ignore
         }
         List<String> parameters = super.getParameters();
+
+        /* Adds the target parameter if it's specified. */
+        if (target != null) {
+            parameters.addAll(Arrays.asList("--target", target));
+        }
+
         parameters.addAll(Arrays.asList(
                 "--host", domain.getHost(),
                 "--port", String.valueOf(domain.getAdminPort()),

@@ -73,6 +73,10 @@ public abstract class GlassfishMojo extends OceanMojo {
     @Parameter(description = "The root directory of the Glassfish installation to be used", expression = "${glassfish.home}")
     private File glassfishDirectory;
 
+    @Parameter(description = "Deployment target. This option is valid onlyin domains that are configured to support clusters",
+               expression = "${glassfish.target}")
+    private String target;
+
     @Parameter(description = "Debug Glassfish output", defaultValue = "false")
     private boolean debug;
 
@@ -116,6 +120,14 @@ public abstract class GlassfishMojo extends OceanMojo {
 
     public void setGlassfishDirectory(File glassfishDirectory) {
         this.glassfishDirectory = glassfishDirectory;
+    }
+
+    public String getTarget() {
+        return target;
+    }
+
+    public void setTarget(String target) {
+        this.target = target;
     }
 
     public File getDomainDirectory() {
